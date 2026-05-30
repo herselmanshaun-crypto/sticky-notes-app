@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="note-card">
+    <h2>{{ note.title }}</h2>
+    <p>{{ note.content }}</p>
+    <P><strong>Created:</strong> {{ note.created_at }}</P>
+
+    <a href="{% url 'note_update' note.pk %}">Edit</a>
+    <a href="{% url 'note_delete' note.pk %}">Delete</a>
+</div>
+{% endblock %}

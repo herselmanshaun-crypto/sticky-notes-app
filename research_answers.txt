@@ -1,0 +1,43 @@
+HTTP State Management, Sessions and Authentication
+
+HTTP is a stateless protocol, meaning each request is treated independently by the server 
+(Mozilla Developer Network, 2026). The server does not automatically remember
+information from previous requests. To maintain information between requests, web
+applications use state management techniques such as cookies and sessions. A cookie
+is a small piece of data stored in the user's browser that can be sent back to the server
+with future requests. Sessions provide a more secure method of storing user information
+because the actual data is stored on the server while only a session identifier is stored
+in the user's browser.
+
+Authentication is the process of verifying the identity of a user before granting access to
+protected resources. Django uses a session framework to maintain user state across requests 
+(Django Software Foundation, 2026)., which supports user registration, login, logout, password 
+management, and permissions. When a user successfully logs in, Django creates a session and associates it 
+with that user. The session allows the application to remember who the user is across multiple requests. 
+This combination of HTTP state management, sessions and authentication enables web applications 
+to provide personalised and secure usser experiences while maintaining user data and access control.
+
+Migrating a Django Database to MariaDB
+
+Django uses SQLite as its default database, which is suitable for development and small projects.
+However, larger applications often require a more powerful database management system such as MariaDB.
+Migrating a Django application to MariaDB involves installing the MariaDB server, creating a database 
+and user account, and configuring Django to connect to the new database. The MariaDB Python connector
+or mySQL client library must also be installed so that Django can communicate with the database server.
+
+The database configuration is specified in Django's settings.py file by updating the DATABASES setting
+with the MariaDB connection details, including the database name, username, password, host and port.
+After updating the configuration, Django migrations can be used to create the necessary tables in MariaDB. 
+Running the commands python manage.py makemigrations and python manage.py migrate applies the model definitions
+to the new database. MariaDB provides improved performance, scalability, reliability and support for
+concurrent users compared to SQLite. As a result, it is commonly used in production environments where
+applications require efficient data storage and management.
+
+References:
+Django Software Foundation. (2026). Authentication in Django. Available at: https://docs.djangoproject.com/en/stable/topics/auth/ (Accessed: 30 May 2026).
+
+Django Software Foundation. (2026). Using sessions. Available at: https://docs.djangoproject.com/en/stable/topics/http/sessions/ (Accessed: 30 May 2026).
+
+Mozilla Developer Network. (2026). HTTP Overview. Available at: https://developer.mozilla.org/en-US/docs/Web/HTTP/Overview (Accessed: 30 May 2026).
+
+MariaDB Foundation. (2026). MariaDB Documentation. Available at: https://mariadb.com/docs/ (Accessed: 30 May 2026).
